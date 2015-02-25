@@ -1,0 +1,77 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="fonts/stylesheet.css"></link>
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<script src="js/vendor/angular.min.js"></script>
+		<link rel="stylesheet" href="css/index.css"></link>
+	</head>
+
+	<body ng-app="msdApp">
+		<main ng-controller="MainCtrl">
+			<div style="background-image:url({{bg1}})" id="bg1"></div>
+			<div style="background-image:url({{bg2}})" id="bg2"></div>
+			<header>
+				<div id="topNav">
+					<i class="fa fa-bars" ng-show="!unauth && mobileView" ng-click="menuExpanded=!menuExpanded"></i>
+				</div>
+				<span class="headerSubtitle">Make this the best day ever.</span>
+				<span class="headerTitle"><img src="img/logo_sm.png" /></span>
+			</header>
+			<content ng-cloak>
+				<div id="loginBox" ng-if="unauth">
+					<input id="loginName" type="textbox" placeholder="Username..."></input>
+					<input id="loginName" type="password" placeholder="Password..."></input>
+					<div class="button1" ng-click="authenticate()">Go</div>
+				</div>
+				<div id="leftMenu" ng-if="!unauth" ng-hide="!isMobile && !menuExpanded">
+					
+					<div class="separator" ng-click="navExpanded=!navExpanded">
+							<i class="fa fa-angle-double-up collapse" ng-show="navExpanded"></i>
+							<i class="fa fa-angle-double-down expand" ng-show="!navExpanded"></i><br />
+							<span class="separator-subtitle">Navigation</span>
+					</div>
+					
+					<div class="leftMenuItems"  ng-show="navExpanded">
+						<span class="leftMenuItem" ng-click="changePage('home')">Home</span>
+						<span class="leftMenuItem" ng-click="changePage('story')">MSD's Story</span>
+						<span class="leftMenuItem" ng-click="changePage('specialDays')">Your Special Days</span>
+						<span class="leftMenuItem" ng-click="changePage('business')">Business Directory</span>
+						<span class="leftMenuItem" ng-click="changePage('settings')">Settings</span>
+					</div>
+					
+					<div class="separator separator-search" ng-click="searchExpanded=!searchExpanded">
+							<i class="fa fa-angle-double-up collapse" ng-show="searchExpanded"></i>
+							<i class="fa fa-angle-double-down expand" ng-show="!searchExpanded"></i>
+							<span class="separator-subtitle">Search</span>
+					</div>
+						
+					<div class="search-area" ng-show="searchExpanded">
+						<input id="business-search" type="textbox" placeholder="Search by Business..." />
+						<input id="region-search" type="textbox"  placeholder="Search by Region..." />
+						<div class="button1">Go</div>
+					</div>
+					
+				</div>
+				<div class="contentArea" ng-if="!unauth && mainPage">
+					<div ng-include="templates[0].URL"></div>
+				</div>
+				<div class="contentArea" ng-if="!unauth && story">
+					<div ng-include="templates[1].URL"></div>
+				</div>
+				<div class="contentArea" ng-if="!unauth && specialDays">
+					<div ng-include="templates[2].URL"></div>
+				</div>
+				<div class="contentArea" ng-if="!unauth && business">
+					<div ng-include="templates[3].URL"></div>
+				</div>
+				<div class="contentArea" ng-if="!unauth && settings">
+					<div ng-include="templates[4].URL"></div>
+				</div>
+			</content>
+		</main>
+		<script src="js/app.js"></script>
+		<script src="js/controllers/mainController.js"></script>
+	</body>
+</html>
