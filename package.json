@@ -1,0 +1,20 @@
+{
+  "name": "MySpecialDays",
+  "subdomain": "myspecialdays",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "main": "app.js",
+  "dependencies": {
+    "express": "*",
+    "angular": "*",
+    "requirejs": "*",
+	"mongoose": "~3.8.0",
+	"body-parser" : "~1.4.2",
+    "method-override" : "~2.0.2" 
+  },
+  "version": "0.0.0-17",
+  "engines": {
+    "node": "0.10.x"
+  }
+}
