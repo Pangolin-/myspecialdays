@@ -10,28 +10,4 @@ angular
 				controller:"HomeCtrl"
 			}
 		)
-		.when("/about",
-			{
-				templateUrl: "templates/about.html",
-				controller: "AboutCtrl"
-			}
-		)
-		.when("/calendar",
-			{
-				templateUrl: "templates/calendar.html",
-				controller: "CalCtrl"
-			}
-		)
-		.when("/directory",
-			{
-				templateUrl: "templates/directory.html",
-				controller: "DirCtrl"
-			}
-		)
-		.when("/settings",
-			{
-				templateUrl: "templates/settings.html",
-				controller: "SettingsCtrl"
-			}
-		)
 	})

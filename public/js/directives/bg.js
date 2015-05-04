@@ -4,7 +4,7 @@ function setBg( $rootScope, $timeout ) {
 		link: function ( scope, element, attrs ) {
 			$rootScope.$on('Home', function() {
 				$timeout(function() {
-					attrs.$set('style', 'background: url(' + $rootScope.bg + ');background-position:center center')
+					attrs.$set('style', 'background: url(' + $rootScope.bg + ');background-position:center center;')
 				}, 250);
 				$timeout(function() {
 					$rootScope.$emit('image-loaded');

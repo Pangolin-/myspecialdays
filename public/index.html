@@ -4,8 +4,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<link rel="stylesheet" href="css/animate.css"></link>
 		<link rel="stylesheet" href="css/bootstrap.min.css"></link>
-		<link rel="stylesheet" href="fonts/HankenBook/stylesheet.css"></link>
-		<link rel="stylesheet" href="fonts/FabFelt/stylesheet.css"></link>
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css">
 		<script src="js/vendor/jquery.min.js"></script>
 		<script src="js/vendor/bootstrap.min.js"></script>
 		<script src="js/vendor/ui-bootstrap-tpls-0.12.1.min.js"></script>
@@ -20,33 +19,35 @@
 			<img src="img/loader.gif" />
 		</div>
 		
-		<div id="wrapper" class="container-fluid" set-bg ng-controller="MainCtrl">
-		  <div id="header" class="row">
-				<span class="col-xs-12 title" ng-click="nav.active = !nav.active"><img src="/img/logo.png" /></span>
+		<div id="wrapper" class="container-fluid" ng-controller="MainCtrl">
+		  <div id="header" set-bg ng-class="{'bg-view': $root.homePage==true}">
+				<div id="header-inner">
+					<div class="title row">
+						Deals on Days that Matter
+					</div>
+					<div class="bottom row">
+						<div id="logo" class="col-xs-3"><img src="img/logo.png" class="msd-logo" /></div>
+						<div id="social" class="col-xs-9">
+						  <div class="social-wrapper">
+							<a href="#"><i class="fa fa-facebook-square"></i></a>
+							<a href="#"><i class="fa fa-twitter-square"></i></a>
+							<a href="#"><i class="fa fa-pinterest-square"></i></a>
+							<a href="#"><i class="fa fa-google-plus-square"></i></a>
+							<a href="#"><i class="fa fa-linkedin-square"></i></a>
+							<a href="#"><i class="fa fa-youtube-square"></i></a>
+						  </div>
+						</div>
+					</div>
+				</div>
 		  </div>
-		  <div id="navigation" class="row" ng-show="nav.active" ng-cloak>
-			<div class="col-xs-1"></div>
-			<div class="col-xs-2"><a href="#/" ng-click="nav.active = false">home</a></div>
-			<div class="col-xs-2"><a href="#/about/" ng-click="nav.active = false">about</a></div>
-			<div class="col-xs-2"><a href="#/calendar/" ng-click="nav.active = false">calendar</a></div>
-			<div class="col-xs-2"><a href="#/directory/" ng-click="nav.active = false">directory</a></div>
-			<div class="col-xs-2"><a href="#/settings/" ng-click="nav.active = false">settings</a></div>
-			<div class="col-xs-1"></div>
-		  </div>
-		  <ng-view class="main" ng-class="{'bg-view': $root.homePage==true}">
-			
-		  </ng-view>
+		  
+			<ng-view class="main">
+			</ng-view>
 		</div>
-		
-		
 		
 		<script src="js/app.js"></script>
 		<script src="js/controllers/mainController.js"></script>
 		<script src="js/controllers/homeController.js"></script>
-		<script src="js/controllers/aboutController.js"></script>
-		<script src="js/controllers/calendarController.js"></script>
-		<script src="js/controllers/directoryController.js"></script>
-		<script src="js/controllers/settingsController.js"></script>
 		<script src="js/directives/bg.js"></script>
 	</body>
 </html>
